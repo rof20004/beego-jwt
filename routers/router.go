@@ -21,6 +21,7 @@ var FilterAuth = func(ctx *context.Context) {
 	if !b {
 		message, _ := json.Marshal("Not authenticated")
 		ctx.Output.SetStatus(403)
+		ctx.Output.Header("Content-Type", "application/json; charset=utf-8")
 		ctx.Output.Body(message)
 	}
 }
